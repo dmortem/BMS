@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<title><?php echo $page_title; ?></title>	
+	<link rel="stylesheet" href="includes/style.css" type="text/css" media="screen" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<div id="header">
+		<h1>Books Management System</h1>
+        <br/>
+        <h2>
+        <?php
+        date_default_timezone_set("Asia/Shanghai");
+		echo date("Y-m-d h:i:sa");
+        ?>
+        </h2>
+	</div>
+	<div id="navigation">
+		<ul>
+			<li><a href="query.php">Query</a></li>
+			<li><a href="borrow_return.php">Borrow&amp;Return</a></li>
+			<li><a href="add_delete_card.php">Add/Delete Cards</a></li>
+			<li><a href="warehouse_entry.php">Warehouse Entry</a></li>
+			<li>
+            	<?php
+					if (isset($_SESSION['mgrID'])) {
+						echo '<a href="logout.php">Logout</a>';
+					} else {
+						echo '<a href="login.php">Login</a>';
+					}
+                 ?>
+             </li>
+		</ul>
+	</div>
+	<div id="content"><!-- Start of the page-specific content. -->
